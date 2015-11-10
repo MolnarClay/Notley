@@ -12,8 +12,11 @@
           New Note
         </button>
         <ul id="notes">
-          <li>Note 1</li>
-          <li>Note 2</li>
+          <li ng-repeat = "note in notes">
+               {{note.title}}
+x
+          </li>
+
         </ul>
       </nav>
     </div>
