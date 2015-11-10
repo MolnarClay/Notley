@@ -1,23 +1,20 @@
-var express = require ('express');
+var express = require('express');
 var app = express();
+var Note = require('./models/note');
+
+// Allow CORS
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
-app.get('/notes', function(reg,res){
-  res.json([
-    {
-      title: 'note 1',
-      body_html: 'body 1'
-    },
-    {
-      title: 'note 2',
-      body_html: 'body 2'
 
-    }
-  ]);
+// List all notes
+app.get('/notes', function(req, res) {
+  Note.find().then(function(notes) {
+    res.json(notes);
+  });
 });
 
-app.listen(3000,function(){
-  console.log('listening on http://localhost:3000');
+app.listen(3000, function() {
+  console.log('Listening on http://localhost:3000');
 });
