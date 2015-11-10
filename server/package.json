@@ -1,7 +1,7 @@
 {
   "name": "notelyserver",
   "version": "1.0.0",
-  "description": "Node backend for note taking app",
+  "description": "Node backend for a note-taking app.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,8 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Clayton Molnar",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.14.1",
+    "dotenv": "^1.2.0",
     "express": "^4.13.3",
     "mongoose": "^4.2.5"
   },
