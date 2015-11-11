@@ -3,14 +3,14 @@ angular.module('notely')
 
 // NotesService
 // Handle CRUD operations against the server.
-NotesService.$inject = ['$http','API_BASE'];
+NotesService.$inject = ['$http', 'API_BASE'];
 function NotesService($http, API_BASE) {
   var self = this;
   self.notes = [];
 
   // Get all notes from server
   self.fetch = function() {
-    return $http.get(API_BASE)
+    return $http.get(API_BASE + 'notes')
     .then(
       // Success callback
       function(response) {
@@ -38,7 +38,7 @@ function NotesService($http, API_BASE) {
   };
 
   self.create = function(note) {
-    var noteCreatePromise = $http.post(API_BASE, {
+    var noteCreatePromise = $http.post(API_BASE + 'notes', {
       note: note
     });
     noteCreatePromise.then(function(response) {
@@ -48,7 +48,7 @@ function NotesService($http, API_BASE) {
   };
 
   self.update = function(note) {
-    var noteUpdatePromise = $http.put(API_BASE + note._id, {
+    var noteUpdatePromise = $http.put(API_BASE + 'notes/' + note._id, {
       note: {
         title: note.title,
         body_html: note.body_html
@@ -69,7 +69,7 @@ function NotesService($http, API_BASE) {
   };
 
   self.delete = function(note) {
-    var noteDeletePromise = $http.delete(API_BASE + note._id);
+    var noteDeletePromise = $http.delete(API_BASE + 'notes/' + note._id);
     noteDeletePromise.then(function(response) {
       self.remove(response.data.note);
     });
@@ -84,7 +84,6 @@ function NotesService($http, API_BASE) {
       }
     }
   };
-
 }
 
 
