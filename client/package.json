@@ -13,6 +13,7 @@
     "start": "http-server app -a localhost -p 8000 -c-1",
     "prestart": "npm install",
     "postinstall": "bower install",
-    "preupdate-webdriver": "npm install"
+    "preupdate-webdriver": "npm install",
+    "font-awesom": "4.4.x"
   }
 }
