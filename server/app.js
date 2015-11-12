@@ -3,11 +3,10 @@ var express = require('express');
 var app = express();
 
 var bodyParser = require('body-parser');
-
 app.use(bodyParser.json());
 
-// Allow CORS, additional headers, and HTTP methods
 app.use(require('./middleware/headers'));
+app.use(require('./middleware/add-user-to-request'));
 
 app.use('/api/v1/notes', require('./routes/notes'));
 app.use('/api/v1/users', require('./routes/users'));
