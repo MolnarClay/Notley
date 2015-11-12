@@ -1,4 +1,6 @@
 (function() {
+
+
   angular.module('notely.notes', [
     'ui.router',
     'textAngular'
@@ -55,7 +57,7 @@
       if ($scope.note._id){
         return 'Update'
       }
-      else {return 'Add' }  
+      else {return 'Add' }
     };
 
     $scope.delete = function() {
