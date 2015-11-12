@@ -1,5 +1,5 @@
 var db = require('../config/db');
-var NoteSchema = require('./user-schema');
+var UserSchema = require('./user-schema');
 
-var Note = db.model('User', NoteSchema);
-module.exports = Note;
+var User = db.model('User', UserSchema);
+module.exports = User;
