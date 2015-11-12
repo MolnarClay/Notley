@@ -51,6 +51,13 @@
       }
     };
 
+    $scope.buttonText = function(){
+      if ($scope.note._id){
+        return 'Update'
+      }
+      else {return 'Add' }  
+    };
+
     $scope.delete = function() {
       NotesService.delete($scope.note).then(function() {
         $state.go('notes.form', { noteId: undefined });
